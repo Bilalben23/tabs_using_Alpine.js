@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-3">
+
+    <div x-data="{
+        tabs: [
+            'Home', 'Users', 'Settings', 'Orders'
+        ],
+        selectedTab: 'Home'
+    }">
+
+        <ul class="flex items-center justify-between w-[600px] bg-white p-1 rounded-md mx-auto shadow">
+            <template x-for="tab in tabs">
+                <li @click="selectedTab = tab">
+                    <a href="#" x-text="tab" class="block font-bold px-3 py-2 mx-1 rounded-md border hover:bg-gray-200"
+                        :class="{'bg-gray-200': selectedTab === tab}"></a>
+                </li>
+            </template>
+        </ul>
+
+        <div class="w-[600px] bg-white p-3 rounded-md mx-auto mt-3 shadow min-h-[300px]">
+            <template x-if="selectedTab === 'Home'">
+                <div>
+                    <h2 class="text-center font-semibold mb-4">Home</h2>
+                    <p class="text-center">Home section goes here...</p>
+                </div>
+            </template>
+            <template x-if="selectedTab === 'Users'">
+                <div>
+                    <h2 class="text-center font-semibold mb-4">Users</h2>
+                    <p class="text-center">Users section goes here...</p>
+                </div>
+            </template>
+            <template x-if="selectedTab === 'Settings'">
+                <div>
+                    <h2 class="text-center font-semibold mb-4">Settings</h2>
+                    <p class="text-center">Settings section goes here..</p>
+                </div>
+            </template>
+            <template x-if="selectedTab === 'Orders'">
+                <div>
+                    <h2 class="text-center font-semibold mb-4">Orders</h2>
+                    <p class="text-center">Orders section goes here...</p>
+                </div>
+            </template>
+        </div>
+
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>
